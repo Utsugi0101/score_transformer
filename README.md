@@ -1,1 +1,2 @@
 # score_transformer
+## music21を用いてABC記譜法をカタカナの音程付きの楽譜に変換します
