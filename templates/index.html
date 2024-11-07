@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABCファイル変換</title>
+    <style>
+        /* 背景のスタイル */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        /* コンテナのスタイル */
+        .container {
+            text-align: center;
+            padding: 2em;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            max-width: 400px;
+            width: 90%;
+        }
+
+        /* タイトルのスタイル */
+        h1 {
+            font-size: 1.5em;
+            color: #0066cc;
+            margin-bottom: 1em;
+        }
+
+        /* ラベルのスタイル */
+        label {
+            font-size: 1em;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* ファイル選択ボタンのスタイル */
+        input[type="file"] {
+            display: block;
+            margin: 1em auto;
+        }
+
+        /* 送信ボタンのスタイル */
+        input[type="submit"] {
+            background-color: #0066cc;
+            color: white;
+            padding: 0.5em 1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #004a99;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ABCファイルをアップロードして<br>カタカナの音符をつけた楽譜を生成</h1>
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+            <label for="file">ABCファイルを選択：</label>
+            <input type="file" name="file" accept=".abc" required>
+            <input type="submit" value="アップロードして変換">
+        </form>
+    </div>
+</body>
+</html>
+
