@@ -5,6 +5,9 @@ import os
 # Flaskアプリの初期化
 app = Flask(__name__)
 
+us = environment.UserSettings()
+us['musescoreDirectPNGPath'] = '/usr/bin/mscore'
+
 # MuseScoreのパスを設定
 # us = environment.UserSettings()
 # us['musescoreDirectPNGPath'] = '/Applications/MuseScore 4.app/Contents/MacOS/mscore'
