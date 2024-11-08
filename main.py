@@ -6,8 +6,8 @@ import os
 app = Flask(__name__)
 
 # MuseScoreのパスを設定
-us = environment.UserSettings()
-us['musescoreDirectPNGPath'] = '/Applications/MuseScore 4.app/Contents/MacOS/mscore'
+# us = environment.UserSettings()
+# us['musescoreDirectPNGPath'] = '/Applications/MuseScore 4.app/Contents/MacOS/mscore'
 
 # カタカナ変換用の辞書 (シャープ付きも追加)
 katakana_pitch = {
