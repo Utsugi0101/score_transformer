@@ -3,9 +3,11 @@ from music21 import converter, environment, note
 import os
 
 from music21 import environment
+os.environ["QT_QPA_PLATFORM"] = "offscreen"
 
 us = environment.UserSettings()
 us['musescoreDirectPNGPath'] = '/usr/bin/mscore3'
+
 
 
 # Flaskアプリの初期化
