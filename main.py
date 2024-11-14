@@ -2,8 +2,16 @@ from flask import Flask, request, render_template, send_file
 from music21 import converter, environment, note
 import os
 
+from music21 import environment
+
+us = environment.UserSettings()
+us['musescoreDirectPNGPath'] = '/usr/bin/mscore3'
+
+
 # Flaskアプリの初期化
 app = Flask(__name__)
+
+
 
 # MuseScoreのパスを設定
 # us = environment.UserSettings()
