@@ -57,7 +57,8 @@ def upload_file():
 
     # PDFで出力
     output_path = os.path.join('uploads', file.filename + '.pdf')
-    score.show('musicxml.pdf', fp=output_path)
+    score.write('musicxml.pdf', fp=output_path)
+
 
     # PDFファイルを返す
     return send_file(output_path, as_attachment=True)
