@@ -5,7 +5,6 @@ import os
 # Flaskアプリの初期化
 app = Flask(__name__)
 
-
 # MuseScoreのパスを設定
 # us = environment.UserSettings()
 # us['musescoreDirectPNGPath'] = '/Applications/MuseScore 4.app/Contents/MacOS/mscore'
@@ -54,4 +53,5 @@ def upload_file():
     return send_file(output_path, as_attachment=True)
 
 if __name__ == '__main__':
-    app.run('0.0.0.0', port=5000)
+    app.run(debug=False, host='0.0.0.0', port=8000)
+
