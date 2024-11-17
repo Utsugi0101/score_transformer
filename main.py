@@ -85,11 +85,6 @@ def set_secure_headers(response):
     response.headers['Content-Security-Policy'] = "default-src 'self'"
     return response
 
-if __name__ == '__main__':
-    app.run(
-        debug=False, 
-        host='0.0.0.0', 
-        port=8000, 
-        ssl_context=('certs/cert.pem', 'certs/key.pem')
-    )
+ssl_context=('/etc/ssl/certs/cert.pem', '/etc/ssl/private/key_no_passphrase.pem')
+
 
