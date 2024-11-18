@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, send_file, after_this_request
+from flask import Flask, request, render_template, send_file, after_this_request, make_response
 from music21 import converter, environment, note
 import os
 import re
@@ -22,6 +22,8 @@ katakana_pitch = {
 # アップロード用HTMLページ
 @app.route('/')
 def index():
+    response = make_response(render_template('index.html'))
+    response.headers['Content-Type'] = 'text/html; charset=utf-8'
     return render_template('index.html')
 
 # アップロードされたABCファイルを処理するルート
