@@ -62,3 +62,7 @@ def upload_file():
 
     # PDFファイルを返す
     return send_file(output_path, as_attachment=True)
+if __name__ == '__main__':
+    
+    app.debug = True
+    app.run(host='localhost', port=8888)
