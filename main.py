@@ -89,8 +89,8 @@ def set_secure_headers(response):
 
 ssl_context=('/etc/ssl/certs/cert.pem', '/etc/ssl/private/key_no_passphrase.pem')
 
-cert_path = '/path/to/cert.pem'
-key_path = '/path/to/key.pem'
+cert_path = 'cert.pem'
+key_path = '/key.pem'
 
 # 証明書ファイルの存在を確認して設定
 if os.path.exists(cert_path) and os.path.exists(key_path):
