@@ -33,7 +33,7 @@ def index():
     return render_template('index.html')
 
 # アップロードされたABCファイルを処理するルート
-@app.route('/upload', methods=['POST'])
+@app.route('/api', methods=['POST'])
 def upload_file():
     if 'file' not in request.files:
         return "No file part", 400
@@ -65,4 +65,4 @@ def upload_file():
 if __name__ == '__main__':
     
     app.debug = True
-    app.run(host='localhost', port=8888)
+    app.run(host='0.0.0.0', port=8888)
