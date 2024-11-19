@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
@@ -7,7 +6,6 @@
     <title>ABCファイル変換</title>
     <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
     <style>
-        /* 背景のスタイル */
         body {
             font-family: Arial, sans-serif;
             background-color: #f0f8ff;
@@ -70,6 +68,7 @@
 <body>
     <div class="container">
         <h1>ABCファイルをアップロードして<br>カタカナの音符をつけた楽譜を生成</h1>
+        <h2>テスト１</h2>
         <form action="/upload" method="POST" enctype="multipart/form-data">
             <label for="file">ABCファイルを選択：</label>
             <input type="file" name="file" accept=".abc" required>
