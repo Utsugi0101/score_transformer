@@ -88,5 +88,17 @@ def set_secure_headers(response):
     return response
 
 ssl_context=('/etc/ssl/certs/cert.pem', '/etc/ssl/private/key_no_passphrase.pem')
+ert_path = '/path/to/cert.pem'
+key_path = '/path/to/key.pem'
 
+# 証明書ファイルの存在を確認して設定
+if os.path.exists(cert_path) and os.path.exists(key_path):
+    ssl_context = (cert_path, key_path)
+else:
+    ssl_context = None
+    print("Warning: SSL certificate files not found. Running in HTTP mode.")
+
+# アプリケーションのエントリーポイント
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=5000, ssl_context=ssl_context)
 
