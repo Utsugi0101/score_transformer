@@ -6,7 +6,8 @@ import os
 # MuseScoreのパスを設定
 os.environ["QT_QPA_PLATFORM"] = "offscreen"
 us = environment.UserSettings()
-us['musescoreDirectPNGPath'] = '/usr/bin/musecore'
+us['musescoreDirectPNGPath'] = '/usr/local/bin/musecore'
+
 
 # Flaskアプリの初期化
 app = Flask(__name__)
