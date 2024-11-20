@@ -6,7 +6,7 @@ from music21 import environment
 os.environ["QT_QPA_PLATFORM"] = "offscreen"
 
 us = environment.UserSettings()
-us['musescoreDirectPNGPath'] = '/usr/bin/mscore3'
+us['musescoreDirectPNGPath'] = '/usr/bin/mscore'
 
 
 
@@ -62,7 +62,6 @@ def upload_file():
 
     # PDFファイルを返す
     return send_file(output_path, as_attachment=True)
-    pass
 if __name__ == '__main__':
     
     app.debug = True
