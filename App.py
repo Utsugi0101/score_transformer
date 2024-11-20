@@ -28,7 +28,7 @@ katakana_pitch = {
 }
 
 # アップロード用HTMLページ
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/')
 def index():
     return render_template('index.html')
 
