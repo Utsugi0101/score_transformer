@@ -1,8 +1,6 @@
 from flask import Flask, request, render_template, send_file
 from music21 import converter, environment, note
 import os
-
-from music21 import environment
 os.environ["QT_QPA_PLATFORM"] = "offscreen"
 
 us = environment.UserSettings()
@@ -53,7 +51,9 @@ def upload_file():
         if isinstance(element, note.Note):
             pitch_name = element.pitch.name  # 調号を含む音名を取得
             katakana_name = katakana_pitch.get(pitch_name, '')
-            element.addLyric(katakana_name)  # カタカナを歌詞として追加
+            if katakana_name:  # カタカナがある場合のみ追加
+                element.addLyric(katakana_name.encode('utf-8').decode('utf-8'))  # UTF-8を強制
+
 
     # PDFで出力
     output_path = os.path.join('uploads', file.filename + '.pdf')
