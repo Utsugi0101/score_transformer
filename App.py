@@ -1,17 +1,21 @@
 from flask import Flask, request, render_template, send_file
 from music21 import converter, environment, note
 import os
-import subprocess
-
-# 環境設定
 os.environ["QT_QPA_PLATFORM"] = "offscreen"
 
-# MuseScoreのパスを設定
 us = environment.UserSettings()
-us['musescoreDirectPNGPath'] = '/usr/bin/mscore'
+us['musescoreDirectPNGPath'] = '/usr/bin/musescore'
+
+
 
 # Flaskアプリの初期化
 app = Flask(__name__)
+
+
+
+# MuseScoreのパスを設定
+# us = environment.UserSettings()
+# us['musescoreDirectPNGPath'] = '/Applications/MuseScore 4.app/Contents/MacOS/mscore'
 
 # カタカナ変換用の辞書 (シャープ付きも追加)
 katakana_pitch = {
@@ -42,7 +46,7 @@ def upload_file():
     # ABCファイルを読み込み
     score = converter.parse(file_path)
 
-    # 音符にカタカナの音程を付加
+        # 音符にカタカナの音程を付加
     for element in score.recurse().notes:
         if isinstance(element, note.Note):
             pitch_name = element.pitch.name  # 調号を含む音名を取得
@@ -50,17 +54,16 @@ def upload_file():
             if katakana_name:
                 element.addLyric(katakana_name)  # カタカナを歌詞として追加
 
-    # MusicXMLとして保存
-    musicxml_path = os.path.join('uploads', file.filename + '.musicxml')
-    score.write('musicxml', fp=musicxml_path)
 
-    # MuseScoreを使ってPDFに変換（コマンドライン）
-    pdf_path = os.path.join('uploads', file.filename + '.pdf')
-    subprocess.run(['/usr/bin/mscore', musicxml_path, '-o', pdf_path])
+
+    # PDFで出力
+    output_path = os.path.join('uploads', file.filename + '.pdf')
+    score.write('musicxml.pdf', fp=output_path)
+
 
     # PDFファイルを返す
-    return send_file(pdf_path, as_attachment=True)
-
+    return send_file(output_path, as_attachment=True)
 if __name__ == '__main__':
+    
     app.debug = True
     app.run(host='0.0.0.0', port=8888)
