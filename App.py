@@ -4,7 +4,7 @@ import os
 os.environ["QT_QPA_PLATFORM"] = "offscreen"
 
 us = environment.UserSettings()
-us['musescoreDirectPNGPath'] = '/usr/bin/musescore'
+us['musescoreDirectPNGPath'] = '/usr/bin/musecore'
 
 
 
