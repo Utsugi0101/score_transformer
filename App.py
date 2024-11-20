@@ -4,9 +4,9 @@ from music21 import converter, environment, note
 import os
 
 # MuseScoreのパスを設定
-os.environ["QT_QPA_PLATFORM"] = "offscreen"
-us = environment.UserSettings()
-us['musescoreDirectPNGPath'] = '/usr/local/bin/musecore'
+# os.environ["QT_QPA_PLATFORM"] = "offscreen"
+# us = environment.UserSettings()
+# us['musescoreDirectPNGPath'] = '/usr/local/bin/musecore'
 
 
 # Flaskアプリの初期化
