@@ -3,10 +3,10 @@ from music21 import converter, environment, note
 import os
 import re
 
-# MuseScoreの設定
-os.environ["QT_QPA_PLATFORM"] = "offscreen"
-us = environment.UserSettings()
-us['musescoreDirectPNGPath'] = '/usr/bin/mscore3'  # MuseScoreの正しいパスを設定
+# # MuseScoreの設定
+# os.environ["QT_QPA_PLATFORM"] = "offscreen"
+# us = environment.UserSettings()
+# us['musescoreDirectPNGPath'] = '/usr/bin/mscore3'  # MuseScoreの正しいパスを設定
 
 # Flaskアプリの初期化
 app = Flask(__name__)
