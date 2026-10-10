@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ABCファイル変換</title>
     <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
-    <style>
+    <style nonce="{{ csp_nonce }}">
         body {
             font-family: Arial, sans-serif;
             background-color: #e8f5e9; /* 緑系の背景色 */
@@ -136,21 +136,21 @@
         <p>2. ダウンロードしたabcファイルをアップロード</p>
         <p>3. 「アップロードして変換」ボタンを押してください。</p>
         <p>4. 変換された楽譜がダウンロード可能になります。</p>
-        <button onclick="closePopup()">閉じる</button>
+        <button id="close-popup">閉じる</button>
     </div>
     <div class="container">
         <div class="header">
             <h1>ABCファイル変換</h1>
-            <button onclick="openPopup()">使い方</button>
+            <button id="open-popup">使い方</button>
         </div>
         <h1>ABCファイルから<br>採譜済みの楽譜を生成</h1>
-        <form action="/api" method="POST" enctype="multipart/form-data">
+        <form action="{{ url_for('upload_file') }}" method="POST" enctype="multipart/form-data">
             <label for="file">ABCファイルを選択：</label>
-            <input type="file" name="file" accept=".abc" required>
+            <input type="file" id="file" name="file" accept=".abc" required>
             <input type="submit" value="アップロードして変換">
         </form>
     </div>
-    <script>
+    <script nonce="{{ csp_nonce }}">
         function openPopup() {
             document.getElementById('popup').style.display = 'block';
             document.getElementById('overlay').style.display = 'block';
@@ -160,6 +160,9 @@
             document.getElementById('popup').style.display = 'none';
             document.getElementById('overlay').style.display = 'none';
         }
+
+        document.getElementById('open-popup').addEventListener('click', openPopup);
+        document.getElementById('close-popup').addEventListener('click', closePopup);
     </script>
 </body>
 </html>
